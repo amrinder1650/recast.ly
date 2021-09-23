@@ -1,15 +1,18 @@
 // import exampleVideoData from '/src/data/exampleVideoData.js';
 import VideoListEntry from './VideoListEntry.js';
 
-var VideoList = (props) => (
-  <div className="video-list">
-    {
-      props.videos.map(item => {
-        return <VideoListEntry key={item.snippet.title} video={item}/>;
-      })
-    }
-  </div>
-);
+var VideoList = (props) => {
+
+  return (
+    <div className="video-list">
+      {
+        props.videos.map(item => {
+          return <VideoListEntry key={item.snippet.title} video={item}/>;
+        })
+      }
+    </div>
+  );
+};
 
 // var VideoList = () => (
 //   <div className="video-list">

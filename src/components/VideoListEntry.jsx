@@ -1,19 +1,7 @@
 
 
-
-
-
-// var VideoList = (props) => (
-//   <div className="video-list">
-//     {
-//       props.videos.map(item => {
-//         return <VideoListEntry key={item.snippet.title} video={item}/>;
-//       })
-//     }
-//   </div>
-// );
-
 var VideoListEntry = (props) => (
+
   <div className="video-list-entry media">
     <div className="media-left media-middle">
       <img className="media-object" src={props.video.snippet.thumbnails.default.url} alt="" />
@@ -23,6 +11,7 @@ var VideoListEntry = (props) => (
       <div className="video-list-entry-detail">{props.video.snippet.description}</div>
     </div>
   </div>
+
 );
 
 // var VideoListEntry = () => (
