@@ -7,10 +7,14 @@ class App extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      videos: exampleVideoData
+      videos: exampleVideoData,
+      video: exampleVideoData[0]
     };
   }
 
+  onClickVideo(video) {
+    this.setState({video: video});
+  }
 
   render () {
     return (
@@ -22,16 +26,22 @@ class App extends React.Component {
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <div> <VideoPlayer video = {this.state.videos[0]}/> </div>
+            <div> <VideoPlayer video = {this.state.video}/> </div>
           </div>
           <div className="col-md-5">
-            <div><VideoList videos = {this.state.videos}/> </div>
+            <div><VideoList videos = {this.state.videos} onClick = {(video) => this.onClickVideo(video)}/> </div>
           </div>
         </div>
       </div>
     );
   }
 }
+// Make it so that when the title of a VideoListEntry is clicked, that video is displayed in the player. Do not add state to any of the functional components.
+
+//when clicking on
+
+
+
 
 // In the ES6 spec, files are "modules" and do not share a top-level scope
 // `var` declarations will only exist globally where explicitly defined
