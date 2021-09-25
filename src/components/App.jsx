@@ -1,6 +1,7 @@
 import exampleVideoData from '/src/data/exampleVideoData.js';
 import VideoPlayer from './VideoPlayer.js';
 import VideoList from './VideoList.js';
+import Search from './Search.js';
 
 
 class App extends React.Component {
@@ -20,24 +21,28 @@ class App extends React.Component {
   componentDidMount() {
     var options = {
       key: '',
-      query: 'Cats',
+      query: 'React',
       max: 5,
     };
     this.props.searchYouTube(options, data => this.setState({videos: data, video: data[0]}));
   }
 
-  // Utilize the componentDidMount  lifecycle hook to render your app with live videos returned from searchYouTube
+  onTypeSearch(searchText) {
+    var option = {
+      key: '',
+      query: searchText,
+      max: 5,
+    };
 
-  // In most cases, you should be able to assign the initial state in the constructor() instead.
-
-  //search youtube (options, callback)
+    this.props.searchYouTube(option, data => this.setState({videos: data, video: data[0]}));
+  }
 
   render () {
     return (
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em>search</em> view goes here</h5></div>
+            <div><Search onChange={(searchText) => this.onTypeSearch(searchText)}/></div>
           </div>
         </nav>
         <div className="row">
