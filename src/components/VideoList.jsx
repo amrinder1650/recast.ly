@@ -2,7 +2,7 @@
 import VideoListEntry from './VideoListEntry.js';
 
 var VideoList = (props) => {
-
+  console.log(props);
   return (
     <div className="video-list">
       {

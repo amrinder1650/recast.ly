@@ -2,12 +2,13 @@ import exampleVideoData from '/src/data/exampleVideoData.js';
 import VideoPlayer from './VideoPlayer.js';
 import VideoList from './VideoList.js';
 
+
 class App extends React.Component {
 
   constructor (props) {
     super(props);
     this.state = {
-      videos: exampleVideoData,
+      videos: [],
       video: exampleVideoData[0]
     };
   }
@@ -15,6 +16,21 @@ class App extends React.Component {
   onClickVideo(video) {
     this.setState({video: video});
   }
+
+  componentDidMount() {
+    var options = {
+      key: '',
+      query: 'Cats',
+      max: 5,
+    };
+    this.props.searchYouTube(options, data => this.setState({videos: data, video: data[0]}));
+  }
+
+  // Utilize the componentDidMount  lifecycle hook to render your app with live videos returned from searchYouTube
+
+  // In most cases, you should be able to assign the initial state in the constructor() instead.
+
+  //search youtube (options, callback)
 
   render () {
     return (
